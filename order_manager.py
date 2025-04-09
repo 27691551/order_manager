@@ -69,12 +69,6 @@ def add_order(orders: list) -> str:
                 if price < 0:
                     print("=> 錯誤：價格不能為負數，請重新輸入")
                     continue
-                break
-            except ValueError:
-                print("=> 錯誤：價格或數量必須為整數，請重新輸入")
-
-        while True:
-            try:
                 quantity_input = input("請輸入數量：").strip()
                 quantity = int(quantity_input)
                 if quantity <= 0:
