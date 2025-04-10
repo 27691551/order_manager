@@ -40,7 +40,7 @@ def print_order_report(data: list, title="訂單報表", single=False) -> None:
         print("--------------------------------------------------")
         total = calculate_order_total(order)
         for item in order["items"]:
-            subtotal = item["price"] * item["quantity"]  
+            subtotal = item["price"] * item["quantity"]
             print(f"{item['name']}\t {item['price']}\t{item['quantity']}\t{subtotal}")
         print("--------------------------------------------------")
         print(f"訂單總額: {total:,}")
@@ -77,20 +77,12 @@ def add_order(orders: list) -> str:
             except ValueError:
                 print("=> 錯誤：價格或數量必須為整數，請重新輸入")
 
-        items.append({
-            "name": name,
-            "price": price,
-            "quantity": quantity
-        })
+        items.append({"name": name, "price": price, "quantity": quantity})
 
     if not items:
         return "=> 至少需要一個訂單項目"
 
-    orders.append({
-        "order_id": order_id,
-        "customer": customer,
-        "items": items
-    })
+    orders.append({"order_id": order_id, "customer": customer, "items": items})
     return f"=> 訂單 {order_id} 已新增！"
 
 
