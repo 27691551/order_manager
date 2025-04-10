@@ -38,10 +38,9 @@ def print_order_report(data: list, title="訂單報表", single=False) -> None:
         print("--------------------------------------------------")
         print("商品名稱 單價\t數量\t小計")
         print("--------------------------------------------------")
-        total = 0
+        total = calculate_order_total(order)
         for item in order["items"]:
-            subtotal = item["price"] * item["quantity"]
-            total += subtotal
+            subtotal = item["price"] * item["quantity"]  
             print(f"{item['name']}\t {item['price']}\t{item['quantity']}\t{subtotal}")
         print("--------------------------------------------------")
         print(f"訂單總額: {total:,}")
